@@ -1,0 +1,65 @@
+.posterBlock {
+    height: 279px;
+    width: 451px;
+    margin: 20px;
+    display: flex;
+    box-shadow: 0px 4px 12px 0px #00000026;
+}
+img {
+    width: 183px;
+    height: 281px;
+    object-fit: cover
+}
+.image {
+    display: inline-block;
+    padding: 0;
+    width: 183px;
+    height: 281px    
+}
+.informationBlock {
+    display: inline-block;
+    margin-left: 10px;
+    width: 268px;
+    height: 281px
+}
+h5 {
+    font-family: Inter UI;
+    font-size: 20px;
+    line-height: 28px;
+    text-align: left;
+    margin: 3px 0;
+}
+.date {
+    font-family: Inter UI;
+    font-size: 12px;
+    line-height: 22px;
+    text-align: left;
+    color: #827E7E;    
+    margin: 0;
+}
+.genre {
+    display: inline-block;
+    font-family: Inter;
+    margin-right: 5px;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 15px;
+    letter-spacing: 0em;
+    text-align: left;    
+    border: 1px solid #D9D9D9;
+    border-radius: 2px;
+    width: 46px;
+    height: 20px;
+    background: linear-gradient(0deg, #D9D9D9, #FAFAFA);
+
+}
+.text {
+    font-family: Inter UI;
+    font-size: 12px;
+    line-height: 22px;
+    letter-spacing: 0px;
+    text-align: left;
+    margin: 0;
+    margin-right: 10px;
+}
+

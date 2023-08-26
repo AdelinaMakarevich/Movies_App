@@ -1,0 +1,16 @@
+.searchLine {
+    width: 98%;
+    margin: 0 20px;
+}
+.searchContainer {
+    height: 95vw;
+    display: flex;
+    flex-direction: column;
+}
+footer {
+    margin-top: auto;
+    margin-bottom: 0;
+}
+footer ul {
+    text-align: center;
+}
