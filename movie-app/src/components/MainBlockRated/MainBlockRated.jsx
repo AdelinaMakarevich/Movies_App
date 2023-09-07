@@ -11,7 +11,7 @@ class RatedBlock extends React.Component {
             </main>
             <footer>
                 <Pagination defaultCurrent={1} total={50} onChange={(page) => this.props.getPage(page, 'rated')} />
-            </footer>
+            </footer>   
             </section>
             )
     }

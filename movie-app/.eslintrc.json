@@ -48,9 +48,12 @@
       ]
     },
     "settings": {
+      "react": {
+        "version": "detect"
+      },
       "import/resolver": {
         "node": {
-          "extensions": [".js", ".jsx", ".ts", ".tsx"],
+          "extensions": [".jsx", ".js", ".ts", ".tsx"],
           "moduleDirectory": ["node_modules", "src/"]
         }
       }
