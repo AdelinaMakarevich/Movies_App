@@ -20,8 +20,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint src/",
-    "lint:fix": "eslint src/ --fix",
+    "lint": "eslint src/**/*.jsx",
+    "lint:fix": "eslint src/**/*.jsx --fix",
     "format": "prettier --write src/**/*.jsx"
   },
   "husky": {
@@ -32,7 +32,7 @@
   "lint-staged": {
     "*.(js|jsx)": [
       "npm run lint:write",
-      "prettier --write src/**/*.js",
+      "prettier --write src/**/*.jsx",
       "git add"
     ]
   },

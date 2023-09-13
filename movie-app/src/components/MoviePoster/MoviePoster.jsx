@@ -1,8 +1,8 @@
 import React from 'react'
-import { Image } from 'antd'
-import { Rate } from 'antd'
+import { Image, Rate, Spin } from 'antd'
+
 import { GenreContext } from '../GenreContext'
-import { Spin } from 'antd'
+
 import './MoviePoster.scss'
 
 class Poster extends React.Component {
@@ -17,6 +17,19 @@ class Poster extends React.Component {
             </p>
           ) : (
             this.props.movie.map((item) => {
+              /*let url = this.props.images.filter((el) => el.id === item.id)
+              if (url[0] != undefined) {
+                url = url[0].image
+              } else {
+                url = `https://image.tmdb.org/t/p/original${item.poster_path}`
+              }*/
+              let url
+              if (item.poster_path !== null) {
+                url = `https://image.tmdb.org/t/p/original${item.poster_path}`
+              } else {
+                url =
+                  'https://img.freepik.com/free-photo/top-view-movie-lettering-on-yellow-background-with-copy-space_23-2148425108.jpg?w=740&t=st=1694384695~exp=1694385295~hmac=240ac5fad02ba4f14eddc1a2a9185c93c9dc26e97ed38c6a8c7f3f5e230e8efa'
+              }
               const element = item.genre_ids.map((id_genre) => {
                 let result = genre.filter((item) => item.id === id_genre)
                 return (
@@ -27,13 +40,13 @@ class Poster extends React.Component {
               })
               let styles
               if (item.vote_average < 3) {
-                styles = { border: `2px solid #E90000` }
+                styles = { border: '2px solid #E90000' }
               } else if (item.vote_average >= 3 && item.vote_average < 5) {
-                styles = { border: `2px solid #E97E00` }
+                styles = { border: '2px solid #E97E00' }
               } else if (item.vote_average >= 5 && item.vote_average < 7) {
-                styles = { border: `2px solid #E9D100` }
+                styles = { border: '2px solid #E9D100' }
               } else if (item.vote_average >= 7) {
-                styles = { border: `2px solid #66E900` }
+                styles = { border: '2px solid #66E900' }
               }
 
               let text = item.overview
@@ -45,7 +58,7 @@ class Poster extends React.Component {
               return (
                 <section className="posterBlock" key={item.id}>
                   <div className="image">
-                    <Image src={`https://image.tmdb.org/t/p/original/${item.poster_path}`} />
+                    <Image src={url} />
                   </div>
                   <div className="informationBlock">
                     <div className="Header">

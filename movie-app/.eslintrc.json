@@ -31,7 +31,7 @@
       "react/react-in-jsx-scope": "off",
       "react/prop-types": 0,
       "import/no-unresolved": [2, { "caseSensitive": false }],
-      "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+      "react/jsx-filename-extension": [1, { "extensions": [".jsx"] }],
       "import/order": [
         2,
         {

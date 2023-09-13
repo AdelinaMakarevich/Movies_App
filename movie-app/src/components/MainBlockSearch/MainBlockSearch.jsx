@@ -1,7 +1,7 @@
 import React from 'react'
-import { Pagination } from 'antd'
-import { Input } from 'antd'
+import { Pagination, Input } from 'antd'
 import _ from 'lodash'
+
 import Poster from '../MoviePoster'
 import './MainBlockSearch.scss'
 class SearchBlock extends React.Component {
