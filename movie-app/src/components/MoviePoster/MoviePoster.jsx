@@ -3,6 +3,8 @@ import { Image, Rate, Spin } from 'antd'
 
 import { GenreContext } from '../GenreContext'
 
+import { Style } from './helper'
+
 import './MoviePoster.scss'
 
 class Poster extends React.Component {
@@ -17,12 +19,6 @@ class Poster extends React.Component {
             </p>
           ) : (
             this.props.movie.map((item) => {
-              /*let url = this.props.images.filter((el) => el.id === item.id)
-              if (url[0] != undefined) {
-                url = url[0].image
-              } else {
-                url = `https://image.tmdb.org/t/p/original${item.poster_path}`
-              }*/
               let url
               if (item.poster_path !== null) {
                 url = `https://image.tmdb.org/t/p/original${item.poster_path}`
@@ -38,16 +34,6 @@ class Poster extends React.Component {
                   </div>
                 )
               })
-              let styles
-              if (item.vote_average < 3) {
-                styles = { border: '2px solid #E90000' }
-              } else if (item.vote_average >= 3 && item.vote_average < 5) {
-                styles = { border: '2px solid #E97E00' }
-              } else if (item.vote_average >= 5 && item.vote_average < 7) {
-                styles = { border: '2px solid #E9D100' }
-              } else if (item.vote_average >= 7) {
-                styles = { border: '2px solid #66E900' }
-              }
 
               let text = item.overview
               if (text.length > 230) {
@@ -63,7 +49,7 @@ class Poster extends React.Component {
                   <div className="informationBlock">
                     <div className="Header">
                       <h5>{item.title}</h5>
-                      <div className="Vote" style={styles}>
+                      <div className="Vote" style={Style(item.vote_average)}>
                         {item.vote_average.toFixed(1)}
                       </div>
                     </div>
