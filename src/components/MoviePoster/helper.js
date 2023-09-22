@@ -11,3 +11,13 @@ export function Style(item) {
   }
   return styles
 }
+
+export function Text(item) {
+  let text = item.overview
+  if (text.length > 230) {
+    text = text.slice(0, 230)
+    let lastIndex = text.lastIndexOf(' ')
+    text = text.substring(0, lastIndex) + '...'
+  }
+  return text
+}

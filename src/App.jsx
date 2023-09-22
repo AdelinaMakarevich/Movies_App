@@ -3,10 +3,10 @@ import { Tabs } from 'antd'
 
 import SearchBlock from './components/MainBlockSearch'
 import RatedBlock from './components/MainBlockRated'
-import { request } from './components/Services/MovieRequest'
-import { genre } from './components/Services/GenreRequest'
-import { postRating } from './components/Services/PostRequest'
-import { ratingRequest } from './components/Services/RatingRequest'
+import { request } from './services/MovieRequest'
+import { genre } from './services/GenreRequest'
+import { postRating } from './services/PostRequest'
+import { ratingRequest } from './services/RatingRequest'
 import Error from './components/ErrorBlock'
 import { GenreContext } from './components/GenreContext'
 
@@ -26,6 +26,7 @@ class App extends Component {
       guestSession: undefined,
       ratingError: undefined,
       ratingLoaded: false,
+      totalPages: 1,
       rating: [],
       ratingPage: '1',
     }
@@ -55,7 +56,7 @@ class App extends Component {
         })
         setTimeout(() => {
           ratingRequest(this.state.guestSession, this.state.ratingPage).then((result) =>
-            this.setState({ rating: result.rating, ratingLoaded: result.ratingLoaded })
+            this.setState({ rating: result.rating, ratingLoaded: result.ratingLoaded, totalPages: result.totalPages })
           )
         }, 1000)
       }
@@ -127,7 +128,12 @@ class App extends Component {
         key: '2',
         label: 'Rated',
         children: (
-          <RatedBlock rating={this.state.rating} ratingLoaded={this.state.ratingLoaded} getPage={this.getPage} />
+          <RatedBlock
+            rating={this.state.rating}
+            ratingLoaded={this.state.ratingLoaded}
+            getPage={this.getPage}
+            totalPages={this.state.totalPages}
+          />
         ),
       },
     ]
@@ -144,7 +150,11 @@ class App extends Component {
               onChange={() => {
                 if (this.state.guestSession !== undefined) {
                   ratingRequest(this.state.guestSession, this.state.ratingPage).then((result) =>
-                    this.setState({ rating: result.rating, ratingLoaded: result.ratingLoaded })
+                    this.setState({
+                      rating: result.rating,
+                      ratingLoaded: result.ratingLoaded,
+                      totalPages: result.totalPages,
+                    })
                   )
                 }
               }}

@@ -11,7 +11,16 @@ class RatedBlock extends React.Component {
           <Rated rating={this.props.rating} ratingLoaded={this.props.ratingLoaded} />
         </main>
         <footer>
-          <Pagination defaultCurrent={1} total={50} onChange={(page) => this.props.getPage(page, 'rated')} />
+          {this.props.totalPages > 1 ? (
+            <Pagination
+              defaultCurrent={1}
+              total={this.props.totalPages}
+              pageSize={1}
+              onChange={(page) => this.props.getPage(page, 'rated')}
+            />
+          ) : (
+            ''
+          )}
         </footer>
       </section>
     )

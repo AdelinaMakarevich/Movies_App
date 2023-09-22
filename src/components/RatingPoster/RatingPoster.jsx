@@ -2,7 +2,7 @@ import React from 'react'
 import { Image, Rate, Spin } from 'antd'
 
 import { GenreContext } from '../GenreContext'
-import { Style } from '../MoviePoster/helper'
+import { Style, Text } from '../MoviePoster/helper'
 
 import '../MoviePoster/MoviePoster.scss'
 
@@ -31,13 +31,6 @@ class Rated extends React.Component {
                   </div>
                 )
               })
-
-              let text = item.overview
-              if (text.length > 230) {
-                text = text.slice(0, 230)
-                let lastIndex = text.lastIndexOf(' ')
-                text = text.substring(0, lastIndex) + '...'
-              }
               return (
                 <section className="posterBlock" key={item.id}>
                   <div className="image">
@@ -52,7 +45,7 @@ class Rated extends React.Component {
                     </div>
                     <p className="date">{item.release_date}</p>
                     <div className="genreBlock">{element}</div>
-                    <p className="text">{text}</p>
+                    <p className="text">{Text(item)}</p>
                     <Rate count={10} disabled defaultValue={item.rating} />
                   </div>
                 </section>

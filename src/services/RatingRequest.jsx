@@ -12,10 +12,10 @@ export function ratingRequest(guestSession, page) {
   )
     .then((response) => response.json())
     .then((result) => {
-      console.log(result.results)
       return {
         rating: result.results,
         ratingLoaded: true,
+        totalPages: result.total_pages,
       }
     })
     .catch((error) => {

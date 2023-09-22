@@ -3,7 +3,7 @@ import { Image, Rate, Spin } from 'antd'
 
 import { GenreContext } from '../GenreContext'
 
-import { Style } from './helper'
+import { Style, Text } from './helper'
 
 import './MoviePoster.scss'
 
@@ -34,13 +34,6 @@ class Poster extends React.Component {
                   </div>
                 )
               })
-
-              let text = item.overview
-              if (text.length > 230) {
-                text = text.slice(0, 230)
-                let lastIndex = text.lastIndexOf(' ')
-                text = text.substring(0, lastIndex) + '...'
-              }
               return (
                 <section className="posterBlock" key={item.id}>
                   <div className="image">
@@ -55,7 +48,7 @@ class Poster extends React.Component {
                     </div>
                     <p className="date">{item.release_date}</p>
                     <div className="genreBlock">{element}</div>
-                    <p className="text">{text}</p>
+                    <p className="text">{Text(item)}</p>
                     <Rate count={10} onChange={(value) => this.props.postRating(item.id, value)} />
                   </div>
                 </section>
